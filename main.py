@@ -17,15 +17,13 @@ def index():
     elif name == "Platelet Chan":
       return render_template("platelet.html")
 
-    elif meet == "yes":
-      message = "Hi "+ name + "! Please stay at home."
-    elif sick == "yes":
+    elif meet == "yes" or sick == "yes":
       message = "Hi "+ name + "! Please stay at home."
     else: 
       message = "Hi "+ name + "! You may go to school or work but don't forget social distancing. :)"
       
     fout = open("INFO.txt", 'a')
-    fout.write(name + ',' + meet + ',' + sick + '\n')
+    fout.write(name + ', ' + meet + ', ' + sick + '\n')
     fout.close()
     fin = open("INFO.txt", 'r')
     fin.close()
